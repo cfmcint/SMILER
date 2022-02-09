@@ -4,8 +4,6 @@
 SMILER: Saliency Model Implementation Library for Experimental Research.
 """
 
-# sample change
-
 import sys
 import os
 import subprocess
