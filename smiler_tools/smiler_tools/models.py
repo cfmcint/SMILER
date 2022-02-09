@@ -8,6 +8,7 @@ import tempfile
 import zipfile
 import urllib
 import json
+# TODO: this might be just UNIX?
 import grp
 import getpass
 import distutils.spawn
@@ -100,6 +101,8 @@ class SMILERModel(object):
         temp_file = "model.zip"
         temp_file_path = os.path.join(temp_dir_path, temp_file)
 
+        # TODO: this may need to be changed? urllib.request.install_opener(opener) or
+        # TODO: urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)¶
         urlopener = urllib.URLopener()
         try:
             urlopener.retrieve(url, temp_file_path)
@@ -203,6 +206,7 @@ class MATLABModel(SMILERModel):
         parameter_map.update(self.parameter_map)
         parameter_map.update(experiment_parameter_map)
 
+        # TODO: what is options_verbose for?
         options_overwrite = parameter_map.get_val('overwrite')
         options_recursive = parameter_map.get_val('recursive')
         options_verbose = parameter_map.get_val('verbose')

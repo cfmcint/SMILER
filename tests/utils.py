@@ -38,6 +38,7 @@ def similarity_score(sal_map_1, sal_map_2):
         sal_map_2[sal_map_2 == np.inf] = sal_map_2_desired_max
 
     if sal_map_1.size != sal_map_2.size:
+        # TODO: imresize is deprecated! imresize is deprecated in SciPy 1.0.0, and will be removed in 1.3.0. Use Pillow instead: numpy.array(Image.fromarray(arr).resize()).
         sal_map_2 = scipy.misc.imresize(sal_map_2, sal_map_1.shape)
 
     sal_map_1 = (sal_map_1 - sal_map_1.mean()) / (sal_map_1.std())

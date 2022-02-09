@@ -37,6 +37,7 @@ def run_model(compute_saliency,
         input_dir, output_dir, recursive=options_recursive)
 
     real_stdout = sys.stdout
+    # TODO: unused?
     real_stderr = sys.stdout
     if not options_verbose:
         sys.stdout = open('/dev/null', 'w')
@@ -64,6 +65,7 @@ def run_model(compute_saliency,
 
             pre_processed_image = image_processing.pre_process(
                 PIL.Image.open(input_path), options)
+            # TODO: toimage is deprecated! toimage is deprecated in SciPy 1.0.0, and will be removed in 1.2.0. Use Pillow’s Image.fromarray directly instead.
             scipy.misc.toimage(pre_processed_image).save(shm_image_path)
 
             saliency_map = compute_saliency(shm_image_path)

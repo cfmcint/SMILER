@@ -7,12 +7,12 @@ SMILER: Saliency Model Implementation Library for Experimental Research.
 import sys
 import os
 import subprocess
-
 import click
 
 HERE_PATH = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(HERE_PATH, 'smiler_tools'))
 
+# TODO: issues with imports? is it because they are two folders deep?
 from smiler_tools.config import SmilerConfig
 from smiler_tools.models import ModelManager
 from smiler_tools.experiment import Experiment
@@ -21,6 +21,7 @@ from smiler_tools import utils
 model_manager = ModelManager(os.path.join(HERE_PATH, "models"))
 config = SmilerConfig(os.path.join(HERE_PATH, "config.json"))
 
+# TODO: getuid is linux only, not windows 10
 if os.getuid() is 0:
     print("ERROR: Don't run SMILER as root!")
     exit(10)
@@ -68,6 +69,8 @@ def clean():
         line.split()[2] for line in output_str.strip().split('\n')[1:]
         if 'tsotsoslab/smiler_' in line
     ]
+
+    # TODO: what is rc?
     rc = subprocess.call(['sudo', 'docker', 'rmi'] + ids)
 
     click.echo('Deleting downloaded files...')

@@ -18,6 +18,7 @@ def save_image(path, image, create_parent=True, uid=None, gid=None):
     if create_parent:
         utils.create_dirs_if_none(path, uid=uid, gid=gid)
 
+    # TODO: imsave is deprecated! imsave is deprecated in SciPy 1.0.0, and will be removed in 1.2.0. Use imageio.imwrite instead
     scipy.misc.imsave(path, image)
     os.chown(path, uid, gid)
 
