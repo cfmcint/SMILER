@@ -8,7 +8,6 @@ import tempfile
 import zipfile
 import urllib
 import json
-# TODO: this might be just UNIX?
 import grp
 import getpass
 import distutils.spawn
