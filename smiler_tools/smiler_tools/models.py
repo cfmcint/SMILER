@@ -100,11 +100,8 @@ class SMILERModel(object):
         temp_file = "model.zip"
         temp_file_path = os.path.join(temp_dir_path, temp_file)
 
-        # TODO: this may need to be changed? urllib.request.install_opener(opener) or
-        # TODO: urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)¶
-        urlopener = urllib.URLopener()
         try:
-            urlopener.retrieve(url, temp_file_path)
+            urllib.request.urlretrieve(url, temp_file_path)
             with zipfile.ZipFile(temp_file_path, 'r') as zip_fp:
                 zip_fp.extractall(os.path.join(self.path, "model"))
         except IOError as e:
