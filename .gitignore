@@ -5,6 +5,7 @@
 __pycache__/
 inputImages/
 outputImages/
+.gitattributes
 *.py[cod]
 *$py.class
 
