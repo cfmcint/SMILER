@@ -6,6 +6,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 outputImages/
+examples/yaml/sam_test.yaml
 
 # C extensions
 *.so
