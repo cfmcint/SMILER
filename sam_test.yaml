@@ -1,0 +1,13 @@
+experiment:
+  name: SAM Test
+  description: Testing to see if different SAM's create outputs
+  input_path: examples/input_images/
+  base_output_path: output_images/
+  parameters:
+    do_smoothing: none
+
+runs:
+  - algorithm: SAM
+    output_path: output_images/SAM-ResNet/
+    parameters:
+      network: SAM-ResNet

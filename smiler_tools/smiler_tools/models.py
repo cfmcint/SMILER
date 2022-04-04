@@ -132,11 +132,6 @@ class DockerModel(SMILERModel):
     def _run_in_shell(self, command, docker_or_sudo=True, verbose=False):
         if docker_or_sudo:
             command = ["/usr/bin/sudo"] + command
-            # if getpass.getuser() in grp.getgrnam("docker").gr_mem:
-            #     pass
-            ##### SHOULD NOT THROW ERROR MAYBE FIX
-            # else:
-            #     command = ["/usr/bin/sudo"] + command
 
         if verbose:
             print("Running:\n{}".format(command))

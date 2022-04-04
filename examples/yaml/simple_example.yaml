@@ -1,8 +1,8 @@
 experiment:
   name: Simple Example
   description: An illustrative example of how to set up SMILER YAML experiments.
-  input_path: ../input_images/
-  base_output_path: ../output_images/simple/
+  input_path: ./input_images/
+  base_output_path: ../output_images/
   parameters:
     do_smoothing: none
 
@@ -17,6 +17,6 @@ runs:
 
   - algorithm: DGII
 
-  - algorithm: oSALICON
+  - algorithm: SAM
     parameters:
       color_space: LAB
