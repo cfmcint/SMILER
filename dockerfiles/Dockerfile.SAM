@@ -37,7 +37,7 @@ RUN mkdir /root/.keras && \
       "backend": "theano" \
   }' > /root/.keras/keras.json
 
-RUN echo "[global]\ndevice=gpu\nfloatX=float32\n" > /root/.theanorc
+RUN echo "[global]\ndevice=cpu\nfloatX=float32\n" > /root/.theanorc
 
 COPY ./smiler_tools /tmp/smiler_tools
 RUN pip3 install /tmp/smiler_tools
