@@ -101,7 +101,7 @@ class SMILERModel(object):
         temp_dir_path = tempfile.mkdtemp()
         temp_file = "model.zip"
         temp_file_path = os.path.join(temp_dir_path, temp_file)
-
+        
         try:
             urllib.request.urlretrieve(url, temp_file_path) 
             with zipfile.ZipFile(temp_file_path, 'r') as zip_fp:
@@ -208,7 +208,7 @@ class DockerModel(SMILERModel):
                 with open(docker_image, 'r') as dockerfile:
                     filedata = dockerfile.read()
                     filedata = filedata.replace(gpustr, cpustr)
-                    print(filedata)
+                    # print(filedata)
 
                 with open(docker_image, 'w') as dockerfile:
                     dockerfile.write(filedata)
